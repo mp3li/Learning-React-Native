@@ -1,20 +1,110 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet, View, ScrollView } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
-import { useResponsiveLayout } from '@/hooks/use-responsive-layout';
+import { Link, useRouter } from 'expo-router';
+import { useResponsiveLayout, getScreenDimensions } from '@/hooks/use-responsive-layout';
 import { ResponsiveContainer } from '@/components/responsive-layout';
 import { AccessibleButton } from '@/components/accessible-button';
+import { MasterDetailComponent, type ListItem } from '@/components/master-detail';
 
 export default function HomeScreen() {
-  const { isTablet, getResponsiveGap, getResponsivePadding } = useResponsiveLayout();
+  const router = useRouter();
+  const {
+    isTablet,
+    isLandscape,
+    screenWidth,
+    screenHeight,
+    getResponsiveGap,
+    getResponsivePadding,
+  } = useResponsiveLayout();
   const gap = getResponsiveGap();
   const padding = getResponsivePadding();
+  const initialDimensions = getScreenDimensions();
+  const orientationLabel = isLandscape ? 'landscape' : 'portrait';
+
+  const demoItems: ListItem[] = [
+    {
+      id: 'layout',
+      title: 'Responsive layout',
+      description: 'Breakpoints and spacing',
+    },
+    {
+      id: 'orientation',
+      title: 'Orientation',
+      description: isLandscape ? 'Landscape view' : 'Portrait view',
+    },
+    {
+      id: 'accessibility',
+      title: 'Accessibility',
+      description: 'Labels, targets, and type',
+    },
+  ];
+
+  const renderDetail = (item: ListItem) => {
+    switch (item.id) {
+      case 'layout':
+        return (
+          <ThemedView style={{ gap }}>
+            <ThemedText
+              type="subtitle"
+              accessibilityRole="header"
+              accessibilityLabel="Responsive layout details">
+              Responsive layout
+            </ThemedText>
+            <ThemedText accessibilityRole="text">
+              Current size: {Math.round(screenWidth)} x {Math.round(screenHeight)} (useWindowDimensions).
+            </ThemedText>
+            <ThemedText accessibilityRole="text">
+              Initial size: {Math.round(initialDimensions.width)} x {Math.round(initialDimensions.height)} (Dimensions).
+            </ThemedText>
+            <ThemedText accessibilityRole="text">
+              Breakpoints switch between phone and tablet layouts automatically.
+            </ThemedText>
+          </ThemedView>
+        );
+      case 'orientation':
+        return (
+          <ThemedView style={{ gap }}>
+            <ThemedText
+              type="subtitle"
+              accessibilityRole="header"
+              accessibilityLabel="Orientation details">
+              Orientation
+            </ThemedText>
+            <ThemedText accessibilityRole="text">
+              The layout is currently {orientationLabel}. Rotate to see spacing and layout adjust.
+            </ThemedText>
+            <ThemedText accessibilityRole="text">
+              Buttons and content reflow when the device rotates.
+            </ThemedText>
+          </ThemedView>
+        );
+      case 'accessibility':
+        return (
+          <ThemedView style={{ gap }}>
+            <ThemedText
+              type="subtitle"
+              accessibilityRole="header"
+              accessibilityLabel="Accessibility details">
+              Accessibility
+            </ThemedText>
+            <ThemedText accessibilityRole="text">
+              Elements include labels, roles, and hints for screen readers.
+            </ThemedText>
+            <ThemedText accessibilityRole="text">
+              Touch targets meet 48x48 minimums and text supports dynamic type scaling.
+            </ThemedText>
+          </ThemedView>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <ParallaxScrollView
@@ -97,6 +187,13 @@ export default function HomeScreen() {
               On tablets, the app switches to a split-view (master-detail) layout for better use of
               screen space.
             </ThemedText>
+            <ThemedText
+              style={{ marginTop: gap }}
+              accessibilityLabel="Current screen size and orientation"
+              accessibilityRole="text">
+              Screen size: {Math.round(screenWidth)} x {Math.round(screenHeight)} (live) and{' '}
+              {Math.round(initialDimensions.width)} x {Math.round(initialDimensions.height)} (initial). Orientation: {orientationLabel}.
+            </ThemedText>
           </ThemedView>
 
           {/* Accessibility Features */}
@@ -137,14 +234,37 @@ export default function HomeScreen() {
             </ThemedText>
           </ThemedView>
 
+          {/* Master-Detail Demo */}
+          <ThemedView style={[styles.stepContainer, { gap, paddingVertical: padding }]}>
+            <ThemedText
+              type="subtitle"
+              accessibilityRole="header"
+              accessibilityLabel="Master detail demo">
+              Master-detail demo
+            </ThemedText>
+            <ThemedText
+              accessibilityLabel="Select an item to view details"
+              accessibilityRole="text">
+              Select an item to view details. On tablets, the list and detail appear side-by-side.
+            </ThemedText>
+            <View style={[styles.masterDetailWrapper, isTablet && styles.masterDetailWrapperTablet]}>
+              <MasterDetailComponent items={demoItems} renderDetail={renderDetail} />
+            </View>
+          </ThemedView>
+
           {/* Action Buttons */}
-          <View style={[styles.buttonContainer, { gap }]}>
+          <View
+            style={[
+              styles.buttonContainer,
+              { gap },
+              isLandscape && styles.buttonContainerLandscape,
+            ]}>
             <AccessibleButton
-              label="Explore More"
-              onPress={() => {}}
+              label="Open Demo"
+              onPress={() => router.push('/demo')}
               variant="primary"
               size={isTablet ? 'large' : 'medium'}
-              accessibilityHint="Navigate to the explore tab to learn more features"
+              accessibilityHint="Open the demo page"
             />
             <AccessibleButton
               label="Learn More"
@@ -241,5 +361,19 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'column',
     marginVertical: 16,
+  },
+  buttonContainerLandscape: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  masterDetailWrapper: {
+    minHeight: 240,
+    borderRadius: 12,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+  },
+  masterDetailWrapperTablet: {
+    minHeight: 320,
   },
 });

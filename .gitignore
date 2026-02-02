@@ -1,6 +1,4 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# Dependencies
 node_modules/
 
 # Expo
@@ -10,63 +8,28 @@ dist/
 web-build/
 expo-env.d.ts
 
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
+# Expo Router typed routes (kept for assignment)
+!learning-react-native-app/.expo/
+!learning-react-native-app/.expo/types/
+!learning-react-native-app/.expo/types/router.d.ts
 
-# Metro
-.metro-health-check*
-
-# debug
+# Logs
+*.log
 npm-debug.*
 yarn-debug.*
 yarn-error.*
 pnpm-debug.*
-*.log
-logs/
 
-# macOS
+# OS junk
 .DS_Store
 .AppleDouble
 .LSOverride
-*.pem
-
-# Windows
 Thumbs.db
-ehthumbs.db
 Desktop.ini
-
-# Linux
 .Trash-*
 
-# local env files
-.env*.local
+# Local env (sensitive)
 .env
 .env.*
 !.env.example
 !.env.template
-
-# typescript
-*.tsbuildinfo
-
-app-example
-
-# generated native folders
-/ios
-/android
-
-# tooling & caches
-.vscode/
-.idea/
-*.swp
-*.swo
-.cache/
-.parcel-cache/
-.turbo/
-coverage/
-build/

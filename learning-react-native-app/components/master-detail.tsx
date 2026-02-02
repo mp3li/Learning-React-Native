@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, ScrollView, Dimensions, FlatList } from 'react-native';
+import { View, StyleSheet, ScrollView, FlatList } from 'react-native';
 import { useResponsiveLayout } from '@/hooks/use-responsive-layout';
 import { ThemedView } from './themed-view';
 
