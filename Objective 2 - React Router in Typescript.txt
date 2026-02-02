@@ -1,0 +1,50 @@
+2/1/2026
+
+Objective:
+
+By completing this assignment, you will be able to:
+
+• Create a new Demo page as a route inside the app/ folder.
+• Update the Expo Router type definitions in .expo/types/router.d.ts so TypeScript recognizes the new route.
+• Use useRouter() inside app/(tabs)/index.tsx to navigate to the Demo page.
+
+Instructions:
+
+1. Create the Demo Page under app/
+        • Open your project and locate the app/ folder.
+        • Create a new file named app/demo.tsx.
+
+
+2. Modify the Route Types in .expo/types/router.d.ts
+        • Open the .expo/types/ folder.
+        • Open router.d.ts.
+        • Locate the section where valid routes/paths are defined (often a union type of allowed strings).
+        • Add the Demo route path: "/demo".
+
+• Goal: TypeScript should accept navigation calls like router.push("/demo") without route/type errors.
+
+• Note: This file is often auto-generated, but for this assignment you must update it manually to practice typed routing.
+
+
+3. Use useRouter() in (tabs)/index.tsx to Navigate
+        • Open app/(tabs)/index.tsx.
+        • Import useRouter() from expo-router.
+        • Add a button/link/tap target on the Tabs index screen that navigates to the Demo page using router.push("/demo").
+
+• Expected behavior: When the user selects your navigation control on the tabs index page, the app navigates to the Demo page.
+
+
+4. Run and Test
+        • Start the app with npx expo start.
+        • Verify the following:
+        • The (tabs) index screen loads correctly.
+        • Your navigation control works.
+        • The app navigates to /demo.
+        • The Demo page displays plain HTML tags only.
+        • No TypeScript route errors appear after editing router.d.ts.
+
+
+• Deliverables
+        • app/demo.tsx (your Demo page)
+        • Updated .expo/types/router.d.ts (showing "/demo" added)
+        • Updated app/(tabs)/index.tsx (showing useRouter() navigation to "/demo")

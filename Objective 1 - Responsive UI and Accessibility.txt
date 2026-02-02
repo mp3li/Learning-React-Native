@@ -1,0 +1,33 @@
+1/26/2026 
+
+Objective:
+
+The goal of this assignment is to practice building adaptive and accessible user interfaces in React Native. You will implement responsive layouts that work well on phones and tablets, handle orientation changes, and ensure accessibility for all users.
+
+• Instructions:
+
+• Implement adaptive screens using:
+
+        • Dimensions Links to an external site.and useWindowDimensions Links to an external site. for screen size detection
+
+        • SafeAreaView (Deprecated) Links to an external site. to handle device safe areas
+
+        • Responsive styles that adjust based on screen width
+
+• Create tablet-friendly layouts:
+
+        • Use breakpoints to switch between single-column and split-view (master-detail) layouts
+
+        • Ensure the UI adapts gracefully when resizing or rotating the device
+
+• Apply accessibility best practices:
+
+        • Add descriptive labels and roles for UI elements
+
+        • Ensure touch targets meet recommended size guidelines
+
+        • Maintain sufficient color contrast for text and backgrounds
+
+        • Support dynamic type scaling for text elements
+
+• Test your implementation on both phone and tablet simulators or physical devices.
