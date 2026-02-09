@@ -48,6 +48,22 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="lifecycle"
+        options={{
+          title: 'Lifecycle',
+          tabBarLabel: 'Lifecycle',
+          tabBarAccessibilityLabel: 'Lifecycle tab',
+          tabBarIcon: ({ color }) => (
+            <IconSymbol
+              size={28}
+              name="clock.fill"
+              color={color}
+              accessibilityLabel="Lifecycle"
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

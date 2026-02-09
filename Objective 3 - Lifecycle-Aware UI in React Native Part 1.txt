@@ -1,0 +1,17 @@
+2/8/2026
+
+Objective:
+
+• Build a simple React Native app that:
+    • Uses AppState Links to an external site. to pause and resume tasks when the app goes to the background or returns to the foreground.
+    • Persists volatile UI state when the app is backgrounded or quit, so the user experience is not lost.
+
+Instructions:
+
+• Create a new React Native project or use existing one
+• Set up a simple UI with:
+        • A text input or counter component to represent volatile state.
+        • A button to simulate a network request (can use fetch to a public API or mock URL).
+• Use the AppState API to detect when the app goes to the background or foreground:
+       • Pause any ongoing tasks when backgrounded.
+        • Resume tasks when the app becomes active again.

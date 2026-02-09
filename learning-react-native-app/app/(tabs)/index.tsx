@@ -178,7 +178,7 @@ export default function HomeScreen() {
               accessibilityRole="text">
               Device safe areas are handled with{' '}
               <ThemedText type="defaultSemiBold">SafeAreaView</ThemedText> to ensure content
-              doesn't overlap with system elements.
+              doesn&apos;t overlap with system elements.
             </ThemedText>
             <ThemedText
               style={{ marginTop: gap }}
