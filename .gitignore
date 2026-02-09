@@ -10,7 +10,9 @@ expo-env.d.ts
 
 # Expo Router typed routes (kept for assignment)
 !learning-react-native-app/.expo/
+learning-react-native-app/.expo/*
 !learning-react-native-app/.expo/types/
+learning-react-native-app/.expo/types/*
 !learning-react-native-app/.expo/types/router.d.ts
 
 # Logs
