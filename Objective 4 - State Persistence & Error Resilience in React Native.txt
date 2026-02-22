@@ -1,0 +1,27 @@
+2/20/2026
+
+Objective:
+
+Build a simple React Native app that:
+
+• Persists volatile UI state when the app is backgrounded or quit, so the user experience is not lost.
+
+• Centralizes error handling and displays user-friendly notifications (toast or snackbar) when errors occur.
+
+• Implements retry strategies for failed network requests.
+    
+• Introduces lightweight state management (React Context or Redux Toolkit) for app-wide state.
+
+Instructions:
+
+1. Persist the UI state using AsyncStorage so that the state is restored when the app restarts.
+    
+2. Implement centralized error handling:
+        • Wrap components with an error boundary for render errors.
+        • Use try/catch for async operations.
+        • Show toast or snackbar notifications for errors.
+    
+3. Add retry logic for failed network requests (e.g., retry up to 3 times with a delay).
+   
+4. Test your app:
+        • Simulate network errors and confirm retry and error notifications work.

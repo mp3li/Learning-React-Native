@@ -27,7 +27,6 @@ export default function TabLayout() {
               size={28}
               name="house.fill"
               color={color}
-              accessibilityLabel="Home"
             />
           ),
         }}
@@ -43,7 +42,6 @@ export default function TabLayout() {
               size={28}
               name="paperplane.fill"
               color={color}
-              accessibilityLabel="Explore"
             />
           ),
         }}
@@ -59,7 +57,6 @@ export default function TabLayout() {
               size={28}
               name="clock.fill"
               color={color}
-              accessibilityLabel="Lifecycle"
             />
           ),
         }}

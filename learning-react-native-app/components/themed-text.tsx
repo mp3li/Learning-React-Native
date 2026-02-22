@@ -38,15 +38,15 @@ export function ThemedText({
             ? styles.defaultSemiBold
             : type === 'subtitle'
               ? styles.subtitle
-              : type === 'link'
-                ? styles.link
-                : {};
+              : styles.link;
+    const baseFontSize = 'fontSize' in baseStyle ? baseStyle.fontSize : undefined;
+    const baseLineHeight = 'lineHeight' in baseStyle ? baseStyle.lineHeight : undefined;
 
     // Apply dynamic type scaling for accessibility
     return {
       ...baseStyle,
-      fontSize: (baseStyle.fontSize || 16) * Math.min(scale, 1.3), // Cap at 1.3x for readability
-      lineHeight: (baseStyle.lineHeight || 24) * Math.min(scale, 1.3),
+      fontSize: (baseFontSize || 16) * Math.min(scale, 1.3), // Cap at 1.3x for readability
+      lineHeight: (baseLineHeight || 24) * Math.min(scale, 1.3),
     };
   }, [type, scale]);
 

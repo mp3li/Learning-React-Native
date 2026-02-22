@@ -26,7 +26,6 @@ export default function TabTwoScreen() {
           color="#808080"
           name="chevron.left.forwardslash.chevron.right"
           style={styles.headerImage}
-          accessibilityLabel="Code icon for explore section"
         />
       }>
       <SafeAreaView style={{ flex: 1 }}>
