@@ -1,0 +1,58 @@
+2/8/2026
+
+Objective:
+
+The objective of this final project is to demonstrate your understanding of core mobile development principles using the latest version of Expo React Native. You will apply concepts from the course, including the mobile application lifecycle, user interface design, data management, memory considerations, and basic use of web services.
+
+By completing this project, you will show your ability to:
+
+    • Create intuitive and reliable software on a mobile device platform.
+    • Design user interfaces that work on a variety of phones and tablets.
+    • Manage application data using React Native state, AsyncStorage, or SQLite.
+
+Project Instructions:
+
+1. Create a New Expo Project:
+
+    • Use the latest version of Expo to create a new React Native project.
+
+2. Design Your App Concept:
+
+    • Choose a simple, achievable app idea that demonstrates the required course outcomes. Examples include a to-do app, recipe organizer, habit tracker, study timer, or notes manager.
+
+3. Implement a Multi-Screen User Interface:
+
+    • Your application must have at least two screens. Use React Navigation for screen transitions. Ensure the interface works on both small and large mobile device sizes.
+    
+4. Use Data Management:
+
+    • Your app must store and retrieve data. You may use any of the following:
+        • React Native state (for temporary data)
+        • AsyncStorage
+        • SQLite via Expo modules
+
+    • The data must persist between app restarts.
+   
+5. Include Basic App Lifecycle Handling:
+
+    • Use at least one lifecycle-related feature such as loading saved data on startup, refreshing content when the screen becomes active, or cleaning up timers or subscriptions.
+    
+6. Use a Simple Web Service:
+
+    • Include a basic API request such as fetching public data from an open API: https://restful-api.dev/ Links to an external site..
+    
+7. Test on at Least One Physical or Virtual Device:
+
+    • Run the app on Expo Go or an emulator. Ensure that core features work without errors.
+    
+8. Prepare a Short Project Summary:
+
+    • Write a simple summary in a text file named README that includes the following:
+        • Your app concept
+        • Features you implemented
+        • Data management method used
+        • Any challenges you encountered
+    
+9. Submit Your Project:
+
+    • Ensure that your project runs using npm install and npx expo start.
