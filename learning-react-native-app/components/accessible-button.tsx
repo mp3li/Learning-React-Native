@@ -3,7 +3,6 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  AccessibilityRole,
   useWindowDimensions,
   ViewStyle,
 } from 'react-native';
@@ -36,7 +35,6 @@ export function AccessibleButton({
   testID,
 }: AccessibleButtonProps) {
   const { scale } = useWindowDimensions();
-  const textColor = useThemeColor({ light: '#FFF', dark: '#FFF' }, 'text');
   const primaryColor = useThemeColor({ light: '#0a7ea4', dark: '#fff' }, 'tint');
   const backgroundColor = useThemeColor({ light: '#f5f5f5', dark: '#333' }, 'background');
 

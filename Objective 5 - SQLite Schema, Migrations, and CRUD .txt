@@ -1,0 +1,18 @@
+2/8/2026
+
+Objective:
+
+Build a basic local persistence layer using Expo SQLite. You will define a SQLite schema, create a simple migration process, and implement create/read/update/delete (CRUD) functions that your React Native app can call. By the end, you should have a working data layer that stores information reliably on the device.
+
+Instructions:
+
+    • Open your existing Expo project and create a new database module where you will place your SQLite setup, schema definitions, and repository functions.
+    • Define your main table schema. Choose one simple entity (for example, Task or Note) and write the SQL needed to create the table. Add at least one useful index.
+    • Implement a basic migration process. Store a schema version in a small metadata table, check the version on app startup, and run any needed SQL updates to bring the database to the latest version.
+    • Create CRUD operations for your table. Write functions for creating a row, reading rows, updating a row, and deleting a row. Keep all SQL inside a single repository module.
+    • Add a simple test method or screen in your app that calls your CRUD functions. This can be a very small UI with buttons, or logs in the console that show your functions working.
+    • Verify that:
+        • The table is created correctly.
+        • Migrations only run once and update the version.
+        • All CRUD operations work without errors.
+    • Prepare your final deliverable: a working persistence layer with a clear set of CRUD functions and a migration process that updates the database safely. 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView, FlatList } from 'react-native';
 import { useResponsiveLayout } from '@/hooks/use-responsive-layout';
+import { ThemedText } from './themed-text';
 import { ThemedView } from './themed-view';
 
 export interface ListItem {
@@ -28,7 +29,7 @@ export function MasterDetailComponent({
   headerComponent,
 }: MasterDetailComponentProps) {
   const [selectedItem, setSelectedItem] = useState<ListItem>(items[0] || null);
-  const { isTablet, masterDetailColumnWidth, detailColumnWidth, screenWidth } =
+  const { isTablet, masterDetailColumnWidth, detailColumnWidth } =
     useResponsiveLayout();
 
   if (!selectedItem && items.length > 0) {
@@ -140,9 +141,6 @@ export function MasterDetailComponent({
     </View>
   );
 }
-
-// Import ThemedText and ThemedView from existing components
-import { ThemedText } from './themed-text';
 
 const styles = StyleSheet.create({
   tabletContainer: {

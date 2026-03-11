@@ -61,6 +61,21 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="sqlite"
+        options={{
+          title: 'SQLite',
+          tabBarLabel: 'SQLite',
+          tabBarAccessibilityLabel: 'SQLite tab',
+          tabBarIcon: ({ color }) => (
+            <IconSymbol
+              size={28}
+              name="chevron.left.forwardslash.chevron.right"
+              color={color}
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
